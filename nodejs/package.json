@@ -1,0 +1,13 @@
+{
+  "name": "simu-datathon",
+  "packageManager": "yarn@4.0.2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}

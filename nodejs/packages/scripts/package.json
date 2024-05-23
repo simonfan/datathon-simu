@@ -1,0 +1,24 @@
+{
+  "name": "scripts",
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "@sindresorhus/slugify": "^2.2.1",
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.5.0",
+    "danfojs-node": "^1.1.2",
+    "inquirer": "^9.2.22",
+    "lodash": "^4.17.21",
+    "mkdirp": "^3.0.1",
+    "papaparse": "^5.4.1",
+    "stream-to-promise": "^3.0.0",
+    "table": "^6.8.2"
+  },
+  "scripts": {
+    "script": "node src/run.mjs",
+    "prepare": "node src/prepare/index.mjs",
+    "overview": "node src/overview/index.mjs"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
