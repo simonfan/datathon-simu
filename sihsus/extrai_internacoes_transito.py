@@ -15,8 +15,6 @@ filtrando as linhas de acordo com o código do diagnóstico secundário.
 A classificação utilizada pelo SUS, CID-10, pode ser encontrada no link abaixo:
 http://www2.datasus.gov.br/cid10/V2008/cid10.htm
 
-Os códigos de categoria utilizados para o filtro estão entre V01 e V89.
-
 O dicionário de variáveis dos dados do SIHSUS pode ser visto no link abaixo:
 https://pcdas.icict.fiocruz.br/conjunto-de-dados/sistema-de-informacoes-hospitalares-do-sus-sihsus/dicionario-de-variaveis/
 
@@ -26,13 +24,13 @@ aplicada à Saúde - PCDaS.
 https://pcdas.icict.fiocruz.br/
 """
 
-from functools import reduce
 from multiprocessing import Pool
 import pandas as pd
+import re
 from zipfile import ZipFile
 
 # Caminho para o zip com os dados do SIHSUS
-ETLSIH_ZIP = 'ETLSIH.zip'
+ETLSIH_ZIP = '../../etlsih/ETLSIH.zip'
 # Nome do arquivo consolidado, que será salvo localmente
 CSV_DST = 'etlsih_transito.csv'
 
@@ -46,21 +44,25 @@ COLS_ANALISE = [
     'def_cnae',
     'def_morte',
     'dt_inter',
-    'def_dias_perm',
-    'DIAS_PERM',
-    'QT_DIARIAS',
     'VAL_TOT',
     'res_codigo_adotado',
-    'int_codigo_adotado',
+    'def_micro_res',
+    'def_meso_res',
     'res_SIGLA_UF',
-    'int_SIGLA_UF'
+    'int_codigo_adotado',
+    'def_micro_int',
+    'def_meso_int',
+    'int_SIGLA_UF',
 ]
 
 # Classificadores de diagnóstico secundário.
 # São nestas colunas que os códigos CID associados à acidentes de trânsito
 # serão buscados.
 COLS_CID = [
+    'DIAG_PRINC',
     'DIAG_SECUN',
+    'CID_ASSO',
+    'CID_MORTE',
     'DIAGSEC1',
     'DIAGSEC2',
     'DIAGSEC3',
@@ -72,13 +74,39 @@ COLS_CID = [
     'DIAGSEC9',
 ]
 
-COLS = COLS_ANALISE + COLS_CID
+COL_CAR_INT = ['def_car_int']
+
+COLS = COLS_ANALISE + COLS_CID + COL_CAR_INT
+
+def busca_regex(elemento, regex):
+    """
+    Retorna True se regex puder ser encontrada no elemento.
+    `regex` deve ser uma expressão compilada com re.compile().
+    """
+    if regex.search(elemento) is None:
+        return False
+    else:
+        return True
 
 def extrair(de_arquivo):
-    """Função responsável por extrair os dados de um arquivo do SIHSUS,
+    """
+    Função responsável por extrair os dados de um arquivo do SIHSUS,
     filtrá-los de acordo com as colunas acima e passar o slice de volta
     ao caller.
     """
+
+    regex = re.compile(
+        r"""^V(
+             (?:[1-7][0-9][5679])  # Diversos casos de acidentes de trânsito
+            |(?:0[0-8][19])        # Pedestre em colisão de trânsito
+            |(?:09[23])            # Pedestre em outros acidentes de trânsito
+            |(?:[1-7]94)           # Colisão com veículos não especificados
+            |(?:[12][0-8]4)        # Especificidade ciclista e motociclista
+            |(?:87[0-9])           # Pessoa traumatizada em acidente de trânsito
+            |(?:8[3-6][0-3])       # Veículos especiais em acidente de trânsito
+            |(?:89[23])            # Acidente com veículo não especificado
+        )""",
+    re.X)
 
     with ZipFile(ETLSIH_ZIP) as z:
         with z.open(de_arquivo) as f:
@@ -90,10 +118,12 @@ def extrair(de_arquivo):
                 dtype='object'
             )
 
-    mask = reduce(
-        lambda a,b: a|b,
-        [c.str.match(r'V[0-8][0-9]', na=False) for n, c in df.items() if n in COLS_CID]
-    )
+    cols_cid = [c for c in df.columns if c in COLS_CID]
+
+    mask_cid = df[cols_cid].map(busca_regex, na_action='ignore', regex=regex)
+    mask_car_int = df[COL_CAR_INT[0]].str.contains('trânsito', na=False, regex=False)
+
+    mask = mask_cid.any(axis='columns') | mask_car_int
 
     return df.loc[mask]
 
@@ -103,12 +133,8 @@ def main():
         namelist = z.namelist()
 
     with Pool() as pool:
-        result = pd.concat(pool.map(extrair, namelist, 500), ignore_index=True)
+        result = pd.concat(pool.map(extrair, namelist, 100), ignore_index=True)
 
-    # TODO:
-    # Seria interessante consolidar as diversas colunas de diagnóstico
-    # secundário em uma só, contendo apenas o código relativo ao acidente
-    # de trânsito.
     result.to_csv(CSV_DST, index=False, header=True)
 
     return 0
