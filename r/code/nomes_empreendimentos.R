@@ -43,11 +43,13 @@ dic_acao <- read.csv2(file.path("..",
 # Retirar Acentos
 empreend_ajust <- df_base_empreend %>%
   mutate(empreendimento = str_to_lower(empreendimento),                            # Todos em minúsculo
-         empreendimento = iconv(empreendimento, to = "ASCII//TRANSLIT"),            # Remover acentos
-         empreendimento = str_replace_all(empreendimento, "[0-9]", ""),            # Remover números
+         empreendimento = str_replace_all(empreendimento, "_", " "),               # Trocar _ por espaço
          empreendimento = str_replace_all(empreendimento, "\\.", " "),             # Trocar pontos por espaço
          empreendimento = str_replace_all(empreendimento, "aa", "a"),               # 2 "a" colados viram 1 "a"
-         empreendimento = str_replace_all(empreendimento, "_", " "),               # Trocar _ por espaço
+         empreendimento = str_replace_all(empreendimento, "xx", " "),               # 2 "x" colados viram 1 espaco     
+         empreendimento = iconv(empreendimento, to = "ASCII//TRANSLIT"),            # Remover acentos
+         empreendimento = str_replace_all(empreendimento, "[0-9]", ""),            # Remover números
+         empreendimento = str_replace_all(empreendimento, "sinalizacao", "sinalizacao "),    # Ajustar sinalizacao
          empreendimento = str_replace_all(empreendimento, "\\s+", " "),            # Transformar espaços em um único espaço
          empreendimento = str_trim(empreendimento)) %>%                            # Remover espaços antes e depois
   unnest_tokens(word, empreendimento) %>%
