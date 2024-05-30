@@ -71,7 +71,8 @@ lemma_dic_ajustado <- lemma_dic |>
   filter(!stem == "ver") |> 
   mutate(term = str_to_lower(term),                           # todos em minúsculo
          term = iconv(term, to = "ASCII//TRANSLIT"),           # tirar acentos
-         term = str_replace_all(term, "[0-9]", "")) |> 
+         stem = str_to_lower(stem),                           # todos em minúsculo
+         stem = iconv(stem, to = "ASCII//TRANSLIT")) |>            # tirar acentos 
   distinct(term, .keep_all = TRUE)
 
 
