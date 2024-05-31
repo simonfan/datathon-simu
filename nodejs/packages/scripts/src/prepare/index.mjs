@@ -19,7 +19,10 @@ export function prepare({ inputPath, outputPath, recordCount }) {
   const transformer = new Transform({
     transform: async function (entry, enc, callback) {
       console.log(entry['cod_mdr'])
-      const withFlags = applyFlags(entry)
+      const withFlags = {
+        ...applyFlags(entry),
+        mun_MUNNOMEX: entry['mun_MUNNOMEX'].toUpperCase(),
+      }
 
       this.push(withFlags)
       callback()
@@ -43,9 +46,14 @@ export function prepare({ inputPath, outputPath, recordCount }) {
       'pop_beneficiada',
       'emp_gerado',
       'vlr_investimento',
+      'uf_SIGLA_UF',
+      'mun_MUNNOMEX',
       'Código IBGE',
       'mun_codigo_adotado',
       'mun_MUNNOME',
+      'ano_inicio_obra',
+      'ano_fim_obra',
+      'ano',
     ],
   })
 
