@@ -4,6 +4,39 @@ import { table } from 'table'
 import dfd from 'danfojs-node'
 import { OUTPUT_ROOT } from '../constants.mjs'
 import { writeFile } from 'node:fs/promises'
+import { parse } from 'csv-parse/sync'
+import { readFileSync } from 'node:fs'
+import papa from 'papaparse'
+
+const CAPITAIS = {
+  355030: 'São Paulo',
+  330455: 'Rio de Janeiro',
+  310620: 'Belo Horizonte',
+  410690: 'Curitiba',
+  261160: 'Recife',
+  230440: 'Fortaleza',
+  500270: 'Campo Grande',
+  2800308: 'Aracaju',
+  1501402: 'Belém',
+  1400100: 'Boa Vista',
+  5300108: 'Brasília',
+  5103403: 'Cuiabá',
+  4205407: 'Florianópolis',
+  5208707: 'Goiânia',
+  2507507: 'João Pessoa',
+  // 1600303: 'Macapá',
+  // 2704302: 'Maceió',
+  1302603: 'Manaus',
+  2408102: 'Natal',
+  1721000: 'Palmas',
+  4314902: 'Porto Alegre',
+  1100205: 'Porto Velho',
+  1200401: 'Rio Branco',
+  2927408: 'Salvador',
+  2111300: 'São Luís',
+  2211001: 'Teresina',
+  // 3205309: 'Vitória',
+}
 
 const WRITERS = {
   csv: ['csv', (df) => dfd.toCSV(df)],
@@ -24,124 +57,160 @@ async function writeDfs({ outputDir, prefix = '', fmt = 'table' }, dfsByName) {
   const writer = WRITERS[fmt]
 
   return Object.entries(dfsByName).reduce(
-    (prev, [name, df]) =>
+    (prev, [name, dfOrDfFn]) =>
       prev.then(async () => {
         writeFile(
           join(outputDir, `${prefix}${name}.${writer[0]}`),
-          await writer[1](df),
+          await writer[1](
+            typeof dfOrDfFn === 'function' ? await dfOrDfFn() : dfOrDfFn,
+          ),
         )
       }),
     Promise.resolve(),
   )
 }
 
-function countDfs(df, columns) {
-  return columns.reduce(
-    (acc, groupByCol) => ({
-      ...acc,
-      [groupByCol]: df
+async function runAnalysis({ outputDir, df }) {
+  await writeDfs(
+    {
+      outputDir,
+    },
+    {
+      //
+      // Contagem empreendimentos por situação da obra (geral)
+      //
+      by_situacao_obra_mdr_count: df
         .loc({
-          columns: [groupByCol, 'cod_mdr'],
+          columns: ['situacao_obra_mdr', 'cod_mdr'],
         })
-        .groupby([groupByCol])
+        .groupby(['situacao_obra_mdr'])
         .count()
         .sortValues('cod_mdr_count', {
           ascending: false,
         }),
-    }),
-    {},
-  )
-}
 
-function _queryCidade(df, mun_MUNNOMEX) {
-  return df.query(
-    df['mun_MUNNOMEX']
-      .eq(mun_MUNNOMEX)
-      .and(df['situacao_obra_mdr'].eq('CONCLUÍDA')),
+      //
+      // Contagem de empreendimentos por acao (geral)
+      //
+      by_acao_count: df
+        .loc({
+          columns: ['acao', 'cod_mdr'],
+        })
+        .groupby(['acao'])
+        .count()
+        .sortValues('cod_mdr_count', {
+          ascending: false,
+        }),
+
+      //
+      // Contagem de empreendimentos por ano_fim_obra (geral)
+      //
+      by_ano_fim_obra_count: df
+        .loc({
+          columns: ['ano_fim_obra', 'cod_mdr'],
+        })
+        .groupby(['ano_fim_obra'])
+        .count()
+        .sortValues('ano_fim_obra'),
+
+      //
+      // Contagem de empreendimentos por ano (geral)
+      //
+      by_ano_count: df
+        .loc({
+          columns: ['ano', 'cod_mdr'],
+        })
+        .groupby(['ano'])
+        .count()
+        .sortValues('ano'),
+
+      //
+      // Contagem de empreendimentos por ano_inicio_obra (geral)
+      //
+      by_ano_inicio_obra_count: df
+        .loc({
+          columns: ['ano_inicio_obra', 'cod_mdr'],
+        })
+        .groupby(['ano_inicio_obra'])
+        .count()
+        .sortValues('ano_inicio_obra'),
+
+      //
+      // Contagem de empreendimentos por municipio
+      //
+      by_municipio_count: df
+        .loc({
+          columns: ['_normalized_mun_slug', 'cod_mdr'],
+        })
+        .groupby(['_normalized_mun_slug'])
+        .count()
+        .sortValues('cod_mdr_count', {
+          ascending: false,
+        }),
+
+      //
+      // Soma valores por município
+      //
+      by_municipio_sums: () => {
+        const sums = df
+          .groupby(['_normalized_mun_slug', '_normalized_mun_cod_ibge'])
+          .col(['vlr_investimento', 'vlr_desembolsado'])
+          .sum()
+
+        const populacao = df
+          .groupby(['_normalized_mun_slug', '_normalized_mun_cod_ibge'])
+          .col(['Populacao'])
+          .max()
+          .column('Populacao_max')
+
+        sums.addColumn(
+          'vlr_investimento_por_populacao',
+          sums.column('vlr_investimento_sum').div(populacao),
+          { inplace: true },
+        )
+        sums.addColumn(
+          'vlr_desembolsado_por_populacao',
+          sums.column('vlr_desembolsado_sum').div(populacao),
+          { inplace: true },
+        )
+        sums.addColumn('populacao', populacao, {
+          inplace: true,
+        })
+
+        return sums.sortValues('vlr_investimento_por_populacao', {
+          ascending: false,
+        })
+      },
+
+      //
+      // Médias valores por município
+      //
+      // by_municipio_means: df
+      //   .groupby(['_normalized_mun_slug'])
+      //   .col(['vlr_investimento'])
+      //   .mean()
+      //   .sortValues('vlr_investimento_mean', {
+      //     ascending: false,
+      //   }),
+    },
   )
 }
 
 async function run({ outputDir }) {
-  const df = await dfd.readCSV(
-    join(OUTPUT_ROOT, 'prepare/simu-carteira-mun-T--prepared.csv'),
-  )
-
-  //
-  // contagens gerais
-  //
-  const counts = countDfs(df, ['situacao_obra_mdr', 'acao'])
-
-  await writeDfs({ outputDir, prefix: 'count_by_' }, counts)
-
-  //
-  // Obras por município
-  //
-  const by_mun = df.groupby(['mun_MUNNOMEX'])
-
-  await writeDfs(
-    { outputDir },
+  const { data } = papa.parse(
+    readFileSync(
+      join(OUTPUT_ROOT, 'prepare/simu-carteira-mun-T--prepared.csv'),
+      'utf8',
+    ),
     {
-      by_mun_count: by_mun
-        .col(['cod_mdr'])
-        .count()
-        .sortValues('cod_mdr_count', {
-          ascending: false,
-        }),
-      by_mun_sums: by_mun
-        .col(['vlr_desembolsado'])
-        .sum()
-        .sortValues('vlr_desembolsado_sum', {
-          ascending: false,
-        }),
-      by_mun_means: by_mun
-        .col(['vlr_desembolsado'])
-        .mean()
-        .sortValues('vlr_desembolsado_mean', {
-          ascending: false,
-        }),
+      header: true,
+      dynamicTyping: true,
     },
   )
 
-  //
-  // Obras concluidas
-  //
-  const concluida_cidades = dfd.concat({
-    dfList: [
-      _queryCidade(df, 'SÃO PAULO'),
-      _queryCidade(df, 'RIO DE JANEIRO'),
-      _queryCidade(df, 'BELO HORIZONTE'),
-      _queryCidade(df, 'CURITIBA'),
-      _queryCidade(df, 'RECIFE'),
-      _queryCidade(df, 'FORTALEZA'),
-    ],
-    axis: 0,
-  })
+  const df = new dfd.DataFrame(data)
 
-  //
-  // Concluida by municipio by ano
-  //
-  await writeDfs(
-    {
-      outputDir,
-      fmt: 'csv'
-    },
-    {
-      concluida_by_mun: concluida_cidades
-        .groupby(['mun_MUNNOMEX'])
-        .col(['vlr_investimento'])
-        .sum()
-        .sortValues('vlr_investimento_sum', {
-          ascending: false,
-        }),
-      concluida_by_mun_by_ano: concluida_cidades
-        .groupby(['mun_MUNNOMEX', 'ano_fim_obra'])
-        .col(['vlr_investimento'])
-        .sum()
-        .sortValues('ano_fim_obra', {
-          ascending: false,
-        }),
-    },
-  )
+  await runAnalysis({ outputDir, df })
 }
 
 export default function ({ outputDir }) {

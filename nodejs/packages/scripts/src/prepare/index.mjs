@@ -6,7 +6,8 @@ import { Transform } from 'node:stream'
 import { join } from 'node:path'
 import { FLAG_COLUMNS, applyFlags } from './applyFlags.mjs'
 
-import { INPUT_ROOT } from '../constants.mjs'
+import { INPUT_ROOT, SIMU_CARTEIRA_MUN_COLUMNS } from '../constants.mjs'
+import { NORMALIZE_COLUMNS, normalizeMun } from './normalizeMun.mjs'
 
 export function prepare({ inputPath, outputPath, recordCount }) {
   const readStream = createReadStream(inputPath)
@@ -18,13 +19,13 @@ export function prepare({ inputPath, outputPath, recordCount }) {
 
   const transformer = new Transform({
     transform: async function (entry, enc, callback) {
-      console.log(entry['cod_mdr'])
-      const withFlags = {
+      const final = {
+        ...entry,
         ...applyFlags(entry),
-        mun_MUNNOMEX: entry['mun_MUNNOMEX'].toUpperCase(),
+        ...normalizeMun(entry),
       }
 
-      this.push(withFlags)
+      this.push(final)
       callback()
     },
     objectMode: true,
@@ -33,27 +34,10 @@ export function prepare({ inputPath, outputPath, recordCount }) {
   const stringifier = stringify({
     header: true,
     columns: [
-      // ID
-      'cod_mdr',
-      'cod_operacao',
-      'cod_saci',
-      'acao',
-      'programa',
-      'empreendimento',
+      ...SIMU_CARTEIRA_MUN_COLUMNS,
+
       ...FLAG_COLUMNS,
-      'vlr_desembolsado',
-      'situacao_obra_mdr',
-      'pop_beneficiada',
-      'emp_gerado',
-      'vlr_investimento',
-      'uf_SIGLA_UF',
-      'mun_MUNNOMEX',
-      'Código IBGE',
-      'mun_codigo_adotado',
-      'mun_MUNNOME',
-      'ano_inicio_obra',
-      'ano_fim_obra',
-      'ano',
+      ...NORMALIZE_COLUMNS,
     ],
   })
 
