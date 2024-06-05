@@ -32,7 +32,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 15011,médio,baixo,médio,muito alto
 15012,muito alto,muito alto,muito alto,muito alto
 15013,médio,baixo,muito alto,muito alto
-15014,médio,,muito alto,muito alto
+15014,médio,baixo,muito alto,muito alto
 16001,alto,baixo,muito alto,médio
 16002,médio,baixo,muito alto,muito alto
 16003,médio,baixo,alto,alto
@@ -79,7 +79,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 23003,baixo,médio,médio,alto
 23004,alto,alto,muito alto,muito alto
 23005,baixo,alto,baixo,alto
-23006,,alto,,muito alto
+23006,baixo,alto,baixo,muito alto
 23007,médio,médio,alto,alto
 23008,alto,alto,alto,alto
 23009,muito alto,muito alto,muito alto,alto
@@ -96,16 +96,16 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 23020,médio,muito alto,médio,muito alto
 23021,muito alto,médio,muito alto,alto
 23022,baixo,alto,baixo,alto
-24001,,médio,,alto
+24001,baixo,médio,baixo,alto
 24002,muito alto,médio,muito alto,médio
 24003,baixo,médio,baixo,alto
 24004,baixo,médio,baixo,médio
-24005,,médio,,alto
-24006,,muito alto,,alto
+24005,baixo,médio,baixo,alto
+24006,baixo,muito alto,baixo,alto
 24007,muito alto,baixo,muito alto,baixo
 24008,baixo,médio,baixo,muito alto
 25001,muito alto,baixo,muito alto,médio
-25002,,alto,,muito alto
+25002,baixo,alto,baixo,muito alto
 25003,,muito alto,,muito alto
 25004,médio,muito alto,médio,muito alto
 25005,baixo,muito alto,baixo,muito alto
@@ -114,18 +114,18 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 25008,baixo,muito alto,baixo,alto
 25009,muito alto,muito alto,muito alto,alto
 25010,muito alto,muito alto,muito alto,muito alto
-25011,,muito alto,,muito alto
+25011,baixo,muito alto,baixo,muito alto
 25012,baixo,alto,baixo,muito alto
 25013,médio,muito alto,alto,muito alto
-25014,,alto,,muito alto
+25014,baixo,alto,baixo,muito alto
 25015,,alto,,muito alto
 25016,muito alto,médio,muito alto,alto
-26001,,alto,,alto
-26002,,alto,,muito alto
+26001,baixo,alto,baixo,alto
+26002,baixo,alto,baixo,muito alto
 26003,médio,alto,médio,alto
 26004,baixo,muito alto,baixo,muito alto
-26005,,médio,,alto
-26006,,médio,,alto
+26005,baixo,médio,baixo,alto
+26006,baixo,médio,baixo,alto
 26007,muito alto,muito alto,muito alto,muito alto
 26008,muito alto,baixo,muito alto,muito alto
 26009,muito alto,alto,muito alto,alto
@@ -133,21 +133,21 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 26011,alto,alto,alto,alto
 26012,médio,muito alto,médio,muito alto
 27001,alto,baixo,alto,médio
-27002,,alto,,muito alto
+27002,baixo,alto,baixo,muito alto
 27003,médio,alto,alto,muito alto
-27004,,médio,,muito alto
-27005,,alto,,muito alto
+27004,baixo,médio,baixo,muito alto
+27005,baixo,alto,baixo,muito alto
 27006,médio,alto,médio,muito alto
 27007,muito alto,muito alto,muito alto,muito alto
-27008,,muito alto,,muito alto
+27008,baixo,muito alto,baixo,muito alto
 27009,médio,alto,alto,muito alto
-27010,,alto,,muito alto
+27010,baixo,alto,baixo,muito alto
 28001,muito alto,baixo,muito alto,baixo
 28002,médio,alto,médio,muito alto
 28003,baixo,muito alto,baixo,muito alto
 28004,muito alto,alto,muito alto,alto
-28005,,muito alto,,muito alto
-28006,,baixo,,alto
+28005,baixo,muito alto,baixo,muito alto
+28006,baixo,baixo,baixo,alto
 28007,médio,muito alto,alto,muito alto
 29001,baixo,alto,médio,muito alto
 29002,alto,alto,alto,alto
@@ -158,7 +158,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 29007,médio,alto,médio,muito alto
 29008,alto,médio,muito alto,muito alto
 29009,médio,médio,médio,muito alto
-29010,,alto,,muito alto
+29010,baixo,alto,baixo,muito alto
 29011,muito alto,médio,muito alto,muito alto
 29012,baixo,médio,médio,alto
 29013,médio,baixo,alto,muito alto
@@ -184,7 +184,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 31006,médio,médio,baixo,baixo
 31007,alto,baixo,alto,baixo
 31008,médio,médio,médio,médio
-31009,,médio,,baixo
+31009,baixo,médio,baixo,baixo
 31010,muito alto,baixo,muito alto,médio
 31011,muito alto,médio,muito alto,médio
 31012,alto,baixo,alto,baixo
@@ -216,8 +216,8 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 31042,muito alto,baixo,muito alto,médio
 31044,baixo,médio,baixo,médio
 31045,baixo,médio,baixo,médio
-31046,,baixo,,médio
-31047,,médio,,médio
+31046,baixo,baixo,baixo,médio
+31047,baixo,médio,baixo,médio
 31048,alto,alto,alto,médio
 31049,alto,baixo,muito alto,alto
 31050,baixo,baixo,baixo,alto
@@ -232,7 +232,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 31061,alto,médio,médio,baixo
 31062,,médio,,alto
 31064,muito alto,baixo,muito alto,médio
-31065,,alto,,muito alto
+31065,baixo,alto,baixo,muito alto
 31066,muito alto,alto,muito alto,alto
 31067,médio,muito alto,alto,muito alto
 31068,alto,médio,muito alto,muito alto
@@ -243,7 +243,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 31074,médio,alto,médio,médio
 31075,muito alto,médio,muito alto,baixo
 31076,médio,baixo,alto,alto
-31077,,muito alto,,alto
+31077,baixo,muito alto,baixo,alto
 31078,baixo,médio,baixo,médio
 31079,médio,baixo,médio,baixo
 31080,médio,médio,alto,alto
@@ -255,7 +255,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 31086,médio,médio,baixo,baixo
 31087,médio,alto,médio,médio
 31088,muito alto,médio,muito alto,médio
-31089,,médio,,médio
+31089,baixo,médio,baixo,médio
 31090,médio,médio,médio,médio
 31091,médio,médio,médio,médio
 31092,muito alto,baixo,muito alto,baixo
@@ -284,7 +284,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 35013,muito alto,baixo,muito alto,baixo
 35014,alto,baixo,alto,baixo
 35015,alto,baixo,médio,baixo
-35016,alto,baixo,alto,
+35016,alto,baixo,alto,baixo
 35021,muito alto,baixo,muito alto,baixo
 35022,médio,baixo,médio,baixo
 35023,alto,médio,médio,baixo
@@ -333,7 +333,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 35153,muito alto,alto,alto,médio
 35154,baixo,alto,baixo,baixo
 35155,muito alto,médio,muito alto,baixo
-35156,,alto,,médio
+35156,baixo,alto,baixo,médio
 35157,alto,alto,alto,médio
 35161,médio,médio,médio,baixo
 35162,muito alto,médio,muito alto,médio
@@ -345,7 +345,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 41001,alto,alto,médio,alto
 41002,alto,baixo,médio,baixo
 41003,muito alto,médio,muito alto,médio
-41004,,alto,,médio
+41004,baixo,alto,baixo,médio
 41005,muito alto,muito alto,alto,alto
 41006,alto,alto,alto,médio
 41007,muito alto,muito alto,alto,alto
@@ -384,7 +384,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 43002,baixo,baixo,baixo,baixo
 43003,muito alto,baixo,alto,baixo
 43004,alto,médio,alto,baixo
-43005,,médio,,baixo
+43005,baixo,médio,baixo,baixo
 43006,baixo,médio,baixo,médio
 43007,baixo,baixo,baixo,baixo
 43008,médio,baixo,médio,baixo
@@ -403,15 +403,15 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 43021,médio,médio,baixo,baixo
 43022,baixo,baixo,baixo,baixo
 43023,alto,baixo,médio,baixo
-43024,,alto,,médio
+43024,baixo,alto,baixo,médio
 43025,médio,médio,médio,baixo
 43026,baixo,alto,baixo,médio
 43027,baixo,médio,baixo,médio
 43028,médio,médio,médio,médio
 43029,baixo,alto,baixo,baixo
-43030,,alto,,médio
+43030,baixo,alto,baixo,médio
 50001,muito alto,alto,alto,médio
-50002,,baixo,,médio
+50002,baixo,baixo,baixo,médio
 50003,alto,muito alto,alto,alto
 50004,baixo,alto,baixo,médio
 51001,baixo,muito alto,baixo,alto
@@ -422,7 +422,7 @@ regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
 51006,muito alto,muito alto,muito alto,muito alto
 51007,médio,muito alto,baixo,alto
 51008,médio,muito alto,médio,alto
-51009,,médio,,alto
+51009,baixo,médio,baixo,alto
 51010,muito alto,muito alto,muito alto,médio
 51011,muito alto,muito alto,muito alto,alto
 51012,baixo,muito alto,baixo,alto
