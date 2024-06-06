@@ -1,0 +1,451 @@
+regional_id,inter_100k_ha,obitos_100k_ha,inter_10k_vei,obitos_10k_vei
+11001,médio,muito alto,médio,alto
+11002,muito alto,muito alto,alto,médio
+11003,alto,muito alto,alto,alto
+11004,muito alto,médio,muito alto,médio
+11005,muito alto,muito alto,alto,médio
+11006,muito alto,muito alto,muito alto,alto
+11007,muito alto,muito alto,muito alto,muito alto
+12001,médio,baixo,médio,alto
+12002,muito alto,baixo,muito alto,médio
+12003,baixo,baixo,médio,alto
+13001,médio,baixo,alto,médio
+13002,baixo,baixo,médio,muito alto
+13003,alto,baixo,muito alto,muito alto
+13004,baixo,baixo,médio,muito alto
+13005,médio,baixo,muito alto,muito alto
+13006,médio,baixo,alto,muito alto
+13007,médio,baixo,alto,muito alto
+13008,médio,baixo,muito alto,alto
+13009,médio,baixo,muito alto,alto
+14001,muito alto,alto,muito alto,alto
+14002,médio,alto,alto,muito alto
+15001,muito alto,muito alto,muito alto,muito alto
+15002,alto,médio,alto,alto
+15003,muito alto,muito alto,muito alto,alto
+15004,médio,alto,médio,muito alto
+15006,alto,baixo,muito alto,médio
+15007,médio,médio,alto,muito alto
+15008,médio,alto,médio,muito alto
+15009,baixo,médio,médio,muito alto
+15010,muito alto,muito alto,muito alto,muito alto
+15011,médio,baixo,médio,muito alto
+15012,muito alto,muito alto,muito alto,muito alto
+15013,médio,baixo,muito alto,muito alto
+15014,médio,baixo,muito alto,muito alto
+16001,alto,baixo,muito alto,médio
+16002,médio,baixo,muito alto,muito alto
+16003,médio,baixo,alto,alto
+17001,muito alto,muito alto,muito alto,alto
+17002,baixo,muito alto,baixo,muito alto
+17003,médio,alto,médio,muito alto
+17004,médio,muito alto,médio,muito alto
+17005,médio,muito alto,médio,muito alto
+17006,muito alto,muito alto,muito alto,alto
+17007,alto,muito alto,alto,muito alto
+17008,baixo,muito alto,baixo,muito alto
+21001,alto,muito alto,muito alto,muito alto
+21002,baixo,médio,baixo,alto
+21003,muito alto,muito alto,muito alto,muito alto
+21004,alto,muito alto,muito alto,muito alto
+21005,baixo,alto,baixo,muito alto
+21006,baixo,médio,baixo,muito alto
+21007,muito alto,alto,muito alto,muito alto
+21008,muito alto,muito alto,muito alto,alto
+21009,médio,médio,médio,muito alto
+21010,médio,alto,médio,alto
+21011,muito alto,médio,muito alto,muito alto
+21012,baixo,muito alto,baixo,muito alto
+21013,baixo,médio,baixo,muito alto
+21014,muito alto,médio,muito alto,muito alto
+21015,médio,muito alto,médio,muito alto
+21016,médio,baixo,alto,médio
+21017,médio,alto,médio,muito alto
+21018,médio,baixo,alto,muito alto
+21019,baixo,médio,médio,muito alto
+22001,muito alto,muito alto,muito alto,muito alto
+22002,médio,muito alto,alto,muito alto
+22003,médio,muito alto,médio,muito alto
+22004,muito alto,alto,muito alto,alto
+22005,muito alto,muito alto,muito alto,alto
+22006,alto,muito alto,muito alto,muito alto
+22007,alto,muito alto,muito alto,muito alto
+22008,alto,muito alto,muito alto,muito alto
+22009,baixo,muito alto,baixo,muito alto
+22010,médio,muito alto,médio,muito alto
+22011,muito alto,muito alto,muito alto,muito alto
+23001,muito alto,baixo,muito alto,baixo
+23002,baixo,médio,baixo,alto
+23003,baixo,médio,médio,alto
+23004,alto,alto,muito alto,muito alto
+23005,baixo,alto,baixo,alto
+23006,baixo,alto,baixo,muito alto
+23007,médio,médio,alto,alto
+23008,alto,alto,alto,alto
+23009,muito alto,muito alto,muito alto,alto
+23010,baixo,muito alto,baixo,alto
+23011,alto,muito alto,alto,muito alto
+23012,baixo,muito alto,baixo,muito alto
+23013,baixo,muito alto,baixo,muito alto
+23014,baixo,muito alto,baixo,muito alto
+23015,baixo,muito alto,baixo,muito alto
+23016,baixo,alto,baixo,muito alto
+23017,médio,muito alto,médio,muito alto
+23018,médio,muito alto,alto,muito alto
+23019,muito alto,muito alto,muito alto,muito alto
+23020,médio,muito alto,médio,muito alto
+23021,muito alto,médio,muito alto,alto
+23022,baixo,alto,baixo,alto
+24001,baixo,médio,baixo,alto
+24002,muito alto,médio,muito alto,médio
+24003,baixo,médio,baixo,alto
+24004,baixo,médio,baixo,médio
+24005,baixo,médio,baixo,alto
+24006,baixo,muito alto,baixo,alto
+24007,muito alto,baixo,muito alto,baixo
+24008,baixo,médio,baixo,muito alto
+25001,muito alto,baixo,muito alto,médio
+25002,baixo,alto,baixo,muito alto
+25003,,muito alto,,muito alto
+25004,médio,muito alto,médio,muito alto
+25005,baixo,muito alto,baixo,muito alto
+25006,muito alto,alto,muito alto,alto
+25007,baixo,muito alto,baixo,muito alto
+25008,baixo,muito alto,baixo,alto
+25009,muito alto,muito alto,muito alto,alto
+25010,muito alto,muito alto,muito alto,muito alto
+25011,baixo,muito alto,baixo,muito alto
+25012,baixo,alto,baixo,muito alto
+25013,médio,muito alto,alto,muito alto
+25014,baixo,alto,baixo,muito alto
+25015,,alto,,muito alto
+25016,muito alto,médio,muito alto,alto
+26001,baixo,alto,baixo,alto
+26002,baixo,alto,baixo,muito alto
+26003,médio,alto,médio,alto
+26004,baixo,muito alto,baixo,muito alto
+26005,baixo,médio,baixo,alto
+26006,baixo,médio,baixo,alto
+26007,muito alto,muito alto,muito alto,muito alto
+26008,muito alto,baixo,muito alto,muito alto
+26009,muito alto,alto,muito alto,alto
+26010,alto,baixo,muito alto,baixo
+26011,alto,alto,alto,alto
+26012,médio,muito alto,médio,muito alto
+27001,alto,baixo,alto,médio
+27002,baixo,alto,baixo,muito alto
+27003,médio,alto,alto,muito alto
+27004,baixo,médio,baixo,muito alto
+27005,baixo,alto,baixo,muito alto
+27006,médio,alto,médio,muito alto
+27007,muito alto,muito alto,muito alto,muito alto
+27008,baixo,muito alto,baixo,muito alto
+27009,médio,alto,alto,muito alto
+27010,baixo,alto,baixo,muito alto
+28001,muito alto,baixo,muito alto,baixo
+28002,médio,alto,médio,muito alto
+28003,baixo,muito alto,baixo,muito alto
+28004,muito alto,alto,muito alto,alto
+28005,baixo,muito alto,baixo,muito alto
+28006,baixo,baixo,baixo,alto
+28007,médio,muito alto,alto,muito alto
+29001,baixo,alto,médio,muito alto
+29002,alto,alto,alto,alto
+29003,muito alto,alto,muito alto,alto
+29004,baixo,baixo,baixo,médio
+29005,médio,baixo,médio,alto
+29006,alto,baixo,muito alto,médio
+29007,médio,alto,médio,muito alto
+29008,alto,médio,muito alto,muito alto
+29009,médio,médio,médio,muito alto
+29010,baixo,alto,baixo,muito alto
+29011,muito alto,médio,muito alto,muito alto
+29012,baixo,médio,médio,alto
+29013,médio,baixo,alto,muito alto
+29014,médio,alto,alto,muito alto
+29015,médio,médio,médio,alto
+29016,alto,alto,muito alto,muito alto
+29017,baixo,alto,baixo,alto
+29018,muito alto,médio,muito alto,alto
+29019,baixo,alto,baixo,muito alto
+29020,alto,baixo,muito alto,baixo
+29021,alto,médio,muito alto,alto
+29022,médio,médio,médio,alto
+29023,alto,alto,alto,muito alto
+29024,médio,alto,médio,muito alto
+29025,alto,médio,alto,alto
+29026,muito alto,alto,muito alto,alto
+29027,baixo,médio,baixo,muito alto
+29028,alto,alto,alto,alto
+31001,alto,médio,alto,médio
+31002,alto,médio,alto,baixo
+31003,alto,médio,alto,médio
+31004,baixo,médio,baixo,baixo
+31006,médio,médio,baixo,baixo
+31007,alto,baixo,alto,baixo
+31008,médio,médio,médio,médio
+31009,baixo,médio,baixo,baixo
+31010,muito alto,baixo,muito alto,médio
+31011,muito alto,médio,muito alto,médio
+31012,alto,baixo,alto,baixo
+31013,alto,alto,alto,médio
+31015,alto,médio,alto,médio
+31016,muito alto,baixo,muito alto,baixo
+31017,alto,baixo,alto,médio
+31018,baixo,baixo,baixo,baixo
+31019,alto,alto,alto,alto
+31020,baixo,médio,baixo,médio
+31021,médio,baixo,médio,médio
+31022,médio,baixo,médio,baixo
+31023,muito alto,baixo,alto,baixo
+31024,muito alto,médio,muito alto,médio
+31025,baixo,baixo,baixo,baixo
+31026,médio,baixo,médio,médio
+31027,muito alto,baixo,muito alto,médio
+31028,alto,alto,médio,médio
+31030,muito alto,alto,alto,médio
+31031,alto,médio,alto,baixo
+31032,alto,alto,médio,médio
+31034,baixo,alto,baixo,alto
+31035,alto,baixo,alto,baixo
+31036,muito alto,alto,muito alto,alto
+31037,muito alto,médio,muito alto,médio
+31038,médio,alto,médio,médio
+31040,alto,alto,alto,alto
+31041,muito alto,baixo,muito alto,baixo
+31042,muito alto,baixo,muito alto,médio
+31044,baixo,médio,baixo,médio
+31045,baixo,médio,baixo,médio
+31046,baixo,baixo,baixo,médio
+31047,baixo,médio,baixo,médio
+31048,alto,alto,alto,médio
+31049,alto,baixo,muito alto,alto
+31050,baixo,baixo,baixo,alto
+31051,médio,médio,médio,alto
+31052,alto,médio,alto,médio
+31053,baixo,baixo,baixo,alto
+31055,médio,alto,médio,alto
+31057,muito alto,alto,muito alto,médio
+31058,baixo,alto,baixo,alto
+31059,baixo,médio,baixo,médio
+31060,médio,médio,médio,médio
+31061,alto,médio,médio,baixo
+31062,,médio,,alto
+31064,muito alto,baixo,muito alto,médio
+31065,baixo,alto,baixo,muito alto
+31066,muito alto,alto,muito alto,alto
+31067,médio,muito alto,alto,muito alto
+31068,alto,médio,muito alto,muito alto
+31070,alto,médio,médio,médio
+31071,alto,alto,médio,médio
+31072,muito alto,médio,muito alto,baixo
+31073,baixo,médio,baixo,médio
+31074,médio,alto,médio,médio
+31075,muito alto,médio,muito alto,baixo
+31076,médio,baixo,alto,alto
+31077,baixo,muito alto,baixo,alto
+31078,baixo,médio,baixo,médio
+31079,médio,baixo,médio,baixo
+31080,médio,médio,alto,alto
+31081,alto,baixo,alto,médio
+31082,baixo,alto,baixo,médio
+31083,médio,alto,médio,alto
+31084,médio,médio,médio,baixo
+31085,médio,médio,médio,médio
+31086,médio,médio,baixo,baixo
+31087,médio,alto,médio,médio
+31088,muito alto,médio,muito alto,médio
+31089,baixo,médio,baixo,médio
+31090,médio,médio,médio,médio
+31091,médio,médio,médio,médio
+31092,muito alto,baixo,muito alto,baixo
+31093,alto,alto,alto,médio
+31094,muito alto,baixo,muito alto,alto
+31095,alto,baixo,muito alto,médio
+31096,baixo,alto,baixo,muito alto
+31097,muito alto,baixo,muito alto,baixo
+31098,médio,alto,médio,alto
+31099,muito alto,médio,muito alto,alto
+32001,alto,alto,alto,alto
+32002,muito alto,baixo,muito alto,médio
+32003,muito alto,muito alto,muito alto,alto
+32004,muito alto,muito alto,muito alto,alto
+33001,médio,baixo,médio,alto
+33002,alto,baixo,alto,baixo
+33003,alto,médio,médio,médio
+33004,alto,baixo,alto,médio
+33005,médio,baixo,médio,baixo
+33006,alto,baixo,muito alto,médio
+33007,muito alto,alto,muito alto,alto
+33008,médio,médio,médio,alto
+33009,muito alto,médio,muito alto,médio
+35011,alto,baixo,alto,baixo
+35012,alto,baixo,alto,baixo
+35013,muito alto,baixo,muito alto,baixo
+35014,alto,baixo,alto,baixo
+35015,alto,baixo,médio,baixo
+35016,alto,baixo,alto,baixo
+35021,muito alto,baixo,muito alto,baixo
+35022,médio,baixo,médio,baixo
+35023,alto,médio,médio,baixo
+35031,alto,baixo,alto,baixo
+35032,alto,médio,médio,baixo
+35033,alto,médio,médio,baixo
+35034,muito alto,baixo,alto,baixo
+35041,alto,baixo,alto,baixo
+35051,alto,médio,alto,baixo
+35052,alto,médio,alto,baixo
+35061,médio,alto,médio,médio
+35062,muito alto,baixo,alto,baixo
+35063,muito alto,baixo,muito alto,baixo
+35064,médio,médio,médio,baixo
+35065,médio,baixo,médio,baixo
+35071,alto,médio,alto,baixo
+35072,alto,baixo,médio,baixo
+35073,baixo,baixo,baixo,baixo
+35074,médio,médio,médio,baixo
+35081,alto,baixo,alto,baixo
+35082,alto,baixo,médio,baixo
+35083,alto,baixo,médio,baixo
+35091,alto,baixo,médio,baixo
+35092,alto,baixo,alto,baixo
+35093,muito alto,baixo,muito alto,baixo
+35094,muito alto,médio,muito alto,baixo
+35095,médio,alto,médio,baixo
+35101,alto,baixo,médio,baixo
+35102,alto,médio,médio,baixo
+35103,muito alto,baixo,alto,baixo
+35104,muito alto,baixo,muito alto,baixo
+35111,alto,baixo,alto,baixo
+35112,muito alto,baixo,alto,baixo
+35113,baixo,médio,baixo,médio
+35114,alto,baixo,médio,baixo
+35115,alto,alto,alto,alto
+35121,muito alto,alto,muito alto,alto
+35131,médio,baixo,médio,baixo
+35132,muito alto,baixo,muito alto,baixo
+35133,médio,médio,médio,baixo
+35141,muito alto,médio,alto,baixo
+35142,alto,médio,alto,baixo
+35143,alto,médio,alto,baixo
+35151,muito alto,alto,alto,médio
+35152,baixo,muito alto,baixo,médio
+35153,muito alto,alto,alto,médio
+35154,baixo,alto,baixo,baixo
+35155,muito alto,médio,muito alto,baixo
+35156,baixo,alto,baixo,médio
+35157,alto,alto,alto,médio
+35161,médio,médio,médio,baixo
+35162,muito alto,médio,muito alto,médio
+35163,alto,baixo,alto,baixo
+35171,alto,baixo,alto,baixo
+35172,médio,baixo,médio,baixo
+35173,alto,baixo,alto,baixo
+35174,muito alto,baixo,alto,baixo
+41001,alto,alto,médio,alto
+41002,alto,baixo,médio,baixo
+41003,muito alto,médio,muito alto,médio
+41004,baixo,alto,baixo,médio
+41005,muito alto,muito alto,alto,alto
+41006,alto,alto,alto,médio
+41007,muito alto,muito alto,alto,alto
+41008,muito alto,muito alto,muito alto,médio
+41009,alto,alto,alto,médio
+41010,baixo,muito alto,baixo,médio
+41011,médio,muito alto,baixo,alto
+41012,muito alto,muito alto,muito alto,médio
+41013,baixo,muito alto,baixo,médio
+41014,médio,muito alto,médio,médio
+41015,muito alto,alto,alto,médio
+41016,muito alto,alto,muito alto,médio
+41017,muito alto,alto,alto,médio
+41018,alto,alto,alto,médio
+41019,médio,muito alto,médio,alto
+41020,médio,muito alto,médio,médio
+41021,médio,muito alto,médio,alto
+41022,alto,muito alto,alto,alto
+42001,muito alto,alto,alto,médio
+42002,muito alto,alto,muito alto,baixo
+42003,muito alto,muito alto,alto,alto
+42004,alto,muito alto,médio,médio
+42005,alto,médio,alto,baixo
+42006,alto,alto,médio,baixo
+42007,alto,médio,alto,baixo
+42008,alto,alto,alto,médio
+42009,médio,alto,baixo,médio
+42010,muito alto,alto,alto,baixo
+42011,muito alto,médio,alto,baixo
+42012,alto,alto,médio,baixo
+42013,muito alto,muito alto,alto,médio
+42014,alto,alto,alto,baixo
+42015,alto,médio,alto,baixo
+42016,muito alto,alto,alto,baixo
+43001,alto,médio,alto,baixo
+43002,baixo,baixo,baixo,baixo
+43003,muito alto,baixo,alto,baixo
+43004,alto,médio,alto,baixo
+43005,baixo,médio,baixo,baixo
+43006,baixo,médio,baixo,médio
+43007,baixo,baixo,baixo,baixo
+43008,médio,baixo,médio,baixo
+43009,médio,baixo,médio,baixo
+43010,alto,baixo,alto,baixo
+43011,baixo,médio,baixo,baixo
+43012,baixo,alto,baixo,médio
+43013,médio,médio,médio,baixo
+43014,alto,alto,médio,médio
+43015,médio,muito alto,médio,médio
+43016,baixo,médio,baixo,baixo
+43017,alto,alto,médio,baixo
+43018,baixo,alto,baixo,médio
+43019,médio,alto,médio,médio
+43020,baixo,muito alto,baixo,médio
+43021,médio,médio,baixo,baixo
+43022,baixo,baixo,baixo,baixo
+43023,alto,baixo,médio,baixo
+43024,baixo,alto,baixo,médio
+43025,médio,médio,médio,baixo
+43026,baixo,alto,baixo,médio
+43027,baixo,médio,baixo,médio
+43028,médio,médio,médio,médio
+43029,baixo,alto,baixo,baixo
+43030,baixo,alto,baixo,médio
+50001,muito alto,alto,alto,médio
+50002,baixo,baixo,baixo,médio
+50003,alto,muito alto,alto,alto
+50004,baixo,alto,baixo,médio
+51001,baixo,muito alto,baixo,alto
+51002,muito alto,alto,muito alto,médio
+51003,médio,muito alto,médio,muito alto
+51004,médio,muito alto,médio,muito alto
+51005,alto,muito alto,alto,alto
+51006,muito alto,muito alto,muito alto,muito alto
+51007,médio,muito alto,baixo,alto
+51008,médio,muito alto,médio,alto
+51009,baixo,médio,baixo,alto
+51010,muito alto,muito alto,muito alto,médio
+51011,muito alto,muito alto,muito alto,alto
+51012,baixo,muito alto,baixo,alto
+51013,alto,muito alto,alto,alto
+51014,muito alto,muito alto,muito alto,alto
+51015,muito alto,muito alto,muito alto,alto
+51016,médio,muito alto,baixo,alto
+52001,muito alto,médio,muito alto,baixo
+52002,baixo,alto,baixo,médio
+52003,baixo,alto,baixo,alto
+52004,baixo,médio,baixo,alto
+52005,baixo,muito alto,baixo,médio
+52006,médio,muito alto,médio,muito alto
+52007,médio,muito alto,médio,muito alto
+52008,alto,muito alto,alto,alto
+52009,médio,muito alto,baixo,alto
+52010,médio,muito alto,médio,alto
+52011,muito alto,muito alto,alto,médio
+52012,baixo,muito alto,baixo,alto
+52013,médio,muito alto,médio,alto
+52014,médio,muito alto,médio,alto
+52015,médio,muito alto,médio,alto
+52016,médio,muito alto,médio,médio
+52017,alto,muito alto,médio,médio
+52018,baixo,muito alto,baixo,alto
+53001,alto,baixo,alto,baixo

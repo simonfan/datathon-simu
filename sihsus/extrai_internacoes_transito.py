@@ -24,9 +24,9 @@ aplicada à Saúde - PCDaS.
 https://pcdas.icict.fiocruz.br/
 """
 
+from functools import reduce
 from multiprocessing import Pool
 import pandas as pd
-import re
 from zipfile import ZipFile
 
 # Caminho para o zip com os dados do SIHSUS
@@ -36,22 +36,21 @@ CSV_DST = 'etlsih_transito.csv'
 
 # Colunas interessantes para análise dos dados
 COLS_ANALISE = [
+    'dt_inter',
     'def_sexo',
     'def_instru',
     'def_raca_cor',
     'def_idade_anos',
     'def_cbo',
     'def_cnae',
-    'def_morte',
-    'dt_inter',
+    'MORTE'
     'VAL_TOT',
+    'VAL_UTI',
     'res_codigo_adotado',
-    'def_micro_res',
-    'def_meso_res',
+    'res_MUNNOME'
     'res_SIGLA_UF',
     'int_codigo_adotado',
-    'def_micro_int',
-    'def_meso_int',
+    'int_MUNNOME',
     'int_SIGLA_UF',
 ]
 
@@ -74,39 +73,26 @@ COLS_CID = [
     'DIAGSEC9',
 ]
 
-COL_CAR_INT = ['def_car_int']
+# A coluna "Caráter da Internação" pode trazer a marcação
+# "Outros tipo de acidente de trânsito" nos registros mais antigos,
+# o que corresponde ao código 05.
+COL_CAR_INT = ['CAR_INT']
 
 COLS = COLS_ANALISE + COLS_CID + COL_CAR_INT
-
-def busca_regex(elemento, regex):
-    """
-    Retorna True se regex puder ser encontrada no elemento.
-    `regex` deve ser uma expressão compilada com re.compile().
-    """
-    if regex.search(elemento) is None:
-        return False
-    else:
-        return True
 
 def extrair(de_arquivo):
     """
     Função responsável por extrair os dados de um arquivo do SIHSUS,
     filtrá-los de acordo com as colunas acima e passar o slice de volta
     ao caller.
-    """
 
-    regex = re.compile(
-        r"""^V(
-             (?:[1-7][0-9][5679])  # Diversos casos de acidentes de trânsito
-            |(?:0[0-8][19])        # Pedestre em colisão de trânsito
-            |(?:09[23])            # Pedestre em outros acidentes de trânsito
-            |(?:[1-7]94)           # Colisão com veículos não especificados
-            |(?:[12][0-8]4)        # Especificidade ciclista e motociclista
-            |(?:87[0-9])           # Pessoa traumatizada em acidente de trânsito
-            |(?:8[3-6][0-3])       # Veículos especiais em acidente de trânsito
-            |(?:89[23])            # Acidente com veículo não especificado
-        )""",
-    re.X)
+    Aplica dois métodos para filtrar os registros de acidentes de trânsito:
+    por CID e pela coluna CAR_INT.
+
+    Também, adiciona a coluna `ano_mes_registro` à tabela final, para manter
+    a marcação de qual foi ano e mês em que a AIH apareceu na base,
+    independente da data de internação.
+    """
 
     with ZipFile(ETLSIH_ZIP) as z:
         with z.open(de_arquivo) as f:
@@ -120,12 +106,23 @@ def extrair(de_arquivo):
 
     cols_cid = [c for c in df.columns if c in COLS_CID]
 
-    mask_cid = df[cols_cid].map(busca_regex, na_action='ignore', regex=regex)
-    mask_car_int = df[COL_CAR_INT[0]].str.contains('trânsito', na=False, regex=False)
+    mask_cid = reduce(
+        lambda a,b: a|b,
+        [df[c].str.match(r'V[0-8][0-9]', na=False) for c in cols_cid]
+    )
 
-    mask = mask_cid.any(axis='columns') | mask_car_int
+    mask_car_int = df[COL_CAR_INT[0]] == '05'
 
-    return df.loc[mask]
+    mask = mask_cid | mask_car_int
+    df = df.loc[mask]
+
+    # `de_arquivo` tem o formato padronizado
+    # ETLSIH.ST_UF_ANO_MES_t.csv
+    # Portanto, a manipulação abaixo separa apenas o ano e mês.
+    arquivo_split = de_arquivo.split('_')
+    df['ano_mes_registro'] = f'{arquivo_split[-3]}-{arquivo_split[-2]}'
+
+    return df
 
 def main():
 

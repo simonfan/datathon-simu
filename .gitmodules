@@ -1,0 +1,3 @@
+[submodule "shapefile_das_regionais_de_saude_sus"]
+	path = shapefile_das_regionais_de_saude_sus
+	url = https://github.com/lansaviniec/shapefile_das_regionais_de_saude_sus.git
