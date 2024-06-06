@@ -35,6 +35,18 @@ const MUNICIPIOS_BY_SLUG = MUNICIPIOS.reduce((acc, entry) => {
   }
 }, {})
 
+const DTB = parse(readFileSync(join(INPUT_ROOT, 'DTB.csv'), 'utf8'), {
+  columns: true,
+})
+
+const DTB_BY_MUN_COD_IBGE = DTB.reduce(
+  (acc, entry) => ({
+    ...acc,
+    [entry.municipio_id]: entry,
+  }),
+  {},
+)
+
 const OVERRIDE_MAP = {
   'lauro-muller-sc': 'lauro-mueller-sc',
   'eldorado-dos-carajas-pa': 'eldorado-do-carajas-pa',
@@ -104,18 +116,27 @@ export function normalizeMun(entry) {
     }
   }
 
-  return mun
-    ? {
-        ...entry,
-        _normalized_mun_slug: mun.slug,
-        _normalized_mun_nome: mun['nome_municipio'],
-        _normalized_mun_cod_ibge: mun['cod_municipio'],
-      }
-    : entry
+  if (mun) {
+    const DTB_entry = DTB_BY_MUN_COD_IBGE[mun['cod_municipio']]
+    return {
+      ...entry,
+      _normalized_mun_slug: mun.slug,
+      _normalized_mun_nome: mun['nome_municipio'],
+      _normalized_mun_cod_ibge: mun['cod_municipio'],
+
+      _regiao_saude_id: DTB_entry?.regional_id,
+      _regiao_saude_nome: DTB_entry?.regional_nome,
+    }
+  } else {
+    return entry
+  }
 }
 
 export const NORMALIZE_COLUMNS = [
   '_normalized_mun_slug',
   '_normalized_mun_nome',
   '_normalized_mun_cod_ibge',
+
+  '_regiao_saude_id',
+  '_regiao_saude_nome',
 ]

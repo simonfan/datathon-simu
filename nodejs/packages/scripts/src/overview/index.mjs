@@ -53,7 +53,7 @@ const WRITERS = {
   ],
 }
 
-async function writeDfs({ outputDir, prefix = '', fmt = 'table' }, dfsByName) {
+async function writeDfs({ outputDir, prefix = '', fmt = 'csv' }, dfsByName) {
   const writer = WRITERS[fmt]
 
   return Object.entries(dfsByName).reduce(
@@ -125,6 +125,17 @@ async function runAnalysis({ outputDir, df }) {
         .sortValues('ano'),
 
       //
+      // Contagem de empreendimentos por ano_assinatura (geral)
+      //
+      by_ano_assinatura_count: df
+        .loc({
+          columns: ['ano_assinatura', 'cod_mdr'],
+        })
+        .groupby(['ano_assinatura'])
+        .count()
+        .sortValues('ano_assinatura'),
+
+      //
       // Contagem de empreendimentos por ano_inicio_obra (geral)
       //
       by_ano_inicio_obra_count: df
@@ -152,12 +163,14 @@ async function runAnalysis({ outputDir, df }) {
       // Soma valores por município
       //
       by_municipio_sums: () => {
-        const sums = df
+        const baseDf = df.query(df['ano_assinatura'].ge(2014))
+
+        const sums = baseDf
           .groupby(['_normalized_mun_slug', '_normalized_mun_cod_ibge'])
           .col(['vlr_investimento', 'vlr_desembolsado'])
           .sum()
 
-        const populacao = df
+        const populacao = baseDf
           .groupby(['_normalized_mun_slug', '_normalized_mun_cod_ibge'])
           .col(['Populacao'])
           .max()
