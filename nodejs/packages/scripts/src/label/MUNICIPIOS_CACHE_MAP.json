@@ -1,0 +1,222 @@
+{
+  "florinia-sp": {
+    "cod_uf": "35",
+    "cod_municipio": "3516101",
+    "nome_municipio": "Florínea",
+    "slug": "florinea-sp",
+    "estado": {
+      "COD": "35",
+      "NOME": "São Paulo",
+      "SIGLA": "SP"
+    }
+  },
+  "santa-teresinha-ba": {
+    "cod_uf": "29",
+    "cod_municipio": "2928505",
+    "nome_municipio": "Santa Terezinha",
+    "slug": "santa-terezinha-ba",
+    "estado": {
+      "COD": "29",
+      "NOME": "Bahia",
+      "SIGLA": "BA"
+    }
+  },
+  "santo-antonio-do-leverger-mt": {
+    "cod_uf": "51",
+    "cod_municipio": "5107800",
+    "nome_municipio": "Santo Antônio de Leverger",
+    "slug": "santo-antonio-de-leverger-mt",
+    "estado": {
+      "COD": "51",
+      "NOME": "Mato Grosso",
+      "SIGLA": "MT"
+    }
+  },
+  "poxoreo-mt": {
+    "cod_uf": "51",
+    "cod_municipio": "5107008",
+    "nome_municipio": "Poxoréu",
+    "slug": "poxoreu-mt",
+    "estado": {
+      "COD": "51",
+      "NOME": "Mato Grosso",
+      "SIGLA": "MT"
+    }
+  },
+  "santa-isabel-do-para-pa": {
+    "cod_uf": "15",
+    "cod_municipio": "1506500",
+    "nome_municipio": "Santa Izabel do Pará",
+    "slug": "santa-izabel-do-para-pa",
+    "estado": {
+      "COD": "15",
+      "NOME": "Pará",
+      "SIGLA": "PA"
+    }
+  },
+  "serido-pb": {
+    "cod_uf": "25",
+    "cod_municipio": "2507408",
+    "nome_municipio": "Jericó",
+    "slug": "jerico-pb",
+    "estado": {
+      "COD": "25",
+      "NOME": "Paraíba",
+      "SIGLA": "PB"
+    }
+  },
+  "bataipora-ms": {
+    "cod_uf": "50",
+    "cod_municipio": "5002001",
+    "nome_municipio": "Batayporã",
+    "slug": "bataypora-ms",
+    "estado": {
+      "COD": "50",
+      "NOME": "Mato Grosso do Sul",
+      "SIGLA": "MS"
+    }
+  },
+  "lagoa-do-itaenga-pe": {
+    "cod_uf": "26",
+    "cod_municipio": "2608503",
+    "nome_municipio": "Lagoa de Itaenga",
+    "slug": "lagoa-de-itaenga-pe",
+    "estado": {
+      "COD": "26",
+      "NOME": "Pernambuco",
+      "SIGLA": "PE"
+    }
+  },
+  "iguaraci-pe": {
+    "cod_uf": "26",
+    "cod_municipio": "2606903",
+    "nome_municipio": "Iguaracy",
+    "slug": "iguaracy-pe",
+    "estado": {
+      "COD": "26",
+      "NOME": "Pernambuco",
+      "SIGLA": "PE"
+    }
+  },
+  "brasopolis-mg": {
+    "cod_uf": "31",
+    "cod_municipio": "3108909",
+    "nome_municipio": "Brazópolis",
+    "slug": "brazopolis-mg",
+    "estado": {
+      "COD": "31",
+      "NOME": "Minas Gerais",
+      "SIGLA": "MG"
+    }
+  },
+  "belem-de-sao-francisco-pe": {
+    "cod_uf": "26",
+    "cod_municipio": "2601607",
+    "nome_municipio": "Belém do São Francisco",
+    "slug": "belem-do-sao-francisco-pe",
+    "estado": {
+      "COD": "26",
+      "NOME": "Pernambuco",
+      "SIGLA": "PE"
+    }
+  },
+  "amparo-de-sao-francisco-se": {
+    "cod_uf": "28",
+    "cod_municipio": "2800100",
+    "nome_municipio": "Amparo do São Francisco",
+    "slug": "amparo-do-sao-francisco-se",
+    "estado": {
+      "COD": "28",
+      "NOME": "Sergipe",
+      "SIGLA": "SE"
+    }
+  },
+  "queluzita-mg": {
+    "cod_uf": "31",
+    "cod_municipio": "3153806",
+    "nome_municipio": "Queluzito",
+    "slug": "queluzito-mg",
+    "estado": {
+      "COD": "31",
+      "NOME": "Minas Gerais",
+      "SIGLA": "MG"
+    }
+  },
+  "sao-luis-do-paraitinga-sp": {
+    "cod_uf": "35",
+    "cod_municipio": "3550001",
+    "nome_municipio": "São Luiz do Paraitinga",
+    "slug": "sao-luiz-do-paraitinga-sp",
+    "estado": {
+      "COD": "35",
+      "NOME": "São Paulo",
+      "SIGLA": "SP"
+    }
+  },
+  "itapage-ce": {
+    "cod_uf": "23",
+    "cod_municipio": "2306306",
+    "nome_municipio": "Itapajé",
+    "slug": "itapaje-ce",
+    "estado": {
+      "COD": "23",
+      "NOME": "Ceará",
+      "SIGLA": "CE"
+    }
+  },
+  "trajano-de-morais-rj": {
+    "cod_uf": "33",
+    "cod_municipio": "3305901",
+    "nome_municipio": "Trajano de Moraes",
+    "slug": "trajano-de-moraes-rj",
+    "estado": {
+      "COD": "33",
+      "NOME": "Rio de Janeiro",
+      "SIGLA": "RJ"
+    }
+  },
+  "muquem-de-sao-francisco-ba": {
+    "cod_uf": "29",
+    "cod_municipio": "2922250",
+    "nome_municipio": "Muquém do São Francisco",
+    "slug": "muquem-do-sao-francisco-ba",
+    "estado": {
+      "COD": "29",
+      "NOME": "Bahia",
+      "SIGLA": "BA"
+    }
+  },
+  "dona-eusebia-mg": {
+    "cod_uf": "31",
+    "cod_municipio": "3122900",
+    "nome_municipio": "Dona Euzébia",
+    "slug": "dona-euzebia-mg",
+    "estado": {
+      "COD": "31",
+      "NOME": "Minas Gerais",
+      "SIGLA": "MG"
+    }
+  },
+  "moji-mirim-sp": {
+    "cod_uf": "35",
+    "cod_municipio": "3530805",
+    "nome_municipio": "Mogi Mirim",
+    "slug": "mogi-mirim-sp",
+    "estado": {
+      "COD": "35",
+      "NOME": "São Paulo",
+      "SIGLA": "SP"
+    }
+  },
+  "parati-rj": {
+    "cod_uf": "33",
+    "cod_municipio": "3303807",
+    "nome_municipio": "Paraty",
+    "slug": "paraty-rj",
+    "estado": {
+      "COD": "33",
+      "NOME": "Rio de Janeiro",
+      "SIGLA": "RJ"
+    }
+  }
+}

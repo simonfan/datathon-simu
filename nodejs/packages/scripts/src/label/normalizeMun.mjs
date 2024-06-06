@@ -1,10 +1,13 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { join } from 'node:path'
 import slugify from '@sindresorhus/slugify'
 import { parse } from 'csv-parse/sync'
 import levenshtein from 'damerau-levenshtein'
 
 import { INPUT_ROOT } from '../constants.mjs'
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export const ESTADOS = parse(
   readFileSync(join(INPUT_ROOT, 'cod-ibge-estados.csv'), 'utf8'),
@@ -78,7 +81,7 @@ const OVERRIDE_MAP = {
   'mosquito-to': 'palmeiras-do-tocantins-to',
 }
 
-let CACHE_MAP = {}
+let MUNICIPIOS_CACHE_MAP = {}
 
 export function normalizeMun(entry) {
   if (entry['mun_MUNNOMEX'] === '') {
@@ -90,7 +93,7 @@ export function normalizeMun(entry) {
   let mun =
     MUNICIPIOS_BY_SLUG[slug] ||
     MUNICIPIOS_BY_SLUG[OVERRIDE_MAP[slug]] ||
-    CACHE_MAP[slug]
+    MUNICIPIOS_CACHE_MAP[slug]
 
   if (!mun) {
     // console.log(`no exact: ${slug}`)
@@ -112,7 +115,13 @@ export function normalizeMun(entry) {
         `x: ${slug} - ${entry['mun_MUNNOMEX']} (${entry['uf_SIGLA_UF']})`,
       )
     } else {
-      CACHE_MAP[slug] = mun
+      MUNICIPIOS_CACHE_MAP[slug] = mun
+
+      writeFileSync(
+        join(__dirname, 'MUNICIPIOS_CACHE_MAP.json'),
+        JSON.stringify(MUNICIPIOS_CACHE_MAP, null, 2),
+        'utf8',
+      )
     }
   }
 
