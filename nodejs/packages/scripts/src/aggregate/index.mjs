@@ -142,24 +142,24 @@ async function runAnalysis({ outputDir, df }) {
       //     ascending: false,
       //   }),
 
-      // //
-      // // By municipio
-      // //
-      // by_municipio_by_quadrienio_sums: df
-      //   .groupby([
-      //     '_normalized_mun_cod_ibge',
-      //     '_normalized_mun_slug',
-      //     '_quadrienio',
-      //   ])
-      //   .col([
-      //     'vlr_investimento',
-      //     'vlr_repasse_financiamento',
-      //     'vlr_contrapartida',
-      //   ])
-      //   .sum()
-      //   .sortValues('_quadrienio', {
-      //     ascending: false,
-      //   }),
+      //
+      // By municipio
+      //
+      by_municipio_by_quadrienio_sums: df
+        .groupby([
+          '_normalized_mun_cod_ibge',
+          '_normalized_mun_slug',
+          '_quadrienio',
+        ])
+        .col([
+          'vlr_investimento',
+          'vlr_repasse_financiamento',
+          'vlr_contrapartida',
+        ])
+        .sum()
+        .sortValues('_quadrienio', {
+          ascending: false,
+        }),
 
       //
       // By regional saude

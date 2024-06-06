@@ -9,6 +9,7 @@ import { groupBy } from 'lodash-es'
 import { INPUT_ROOT, OUTPUT_ROOT } from '../constants.mjs'
 
 import { DTB_BY_MUN_COD_IBGE } from '../label/normalizeMun.mjs'
+import { csvTransformStream } from './csvTransformStream.mjs'
 
 const FROTA = parseSync(
   readFileSync(join(INPUT_ROOT, 'simu-frota-mun_T.csv'), 'utf8'),
@@ -126,51 +127,9 @@ const COLUMN_MAP = {
   },
 }
 
-export function reportByRegionalSaude({ inputPath, outputPath, recordCount }) {
-  const readStream = createReadStream(inputPath)
-
-  const parser = parse({
-    delimiter: ',',
-    columns: true,
-    to: recordCount,
+export function reportByRegionalSaude(props) {
+  return csvTransformStream({
+    ...props,
+    columnMap: COLUMN_MAP,
   })
-
-  const transformer = new Transform({
-    transform: async function (entry, enc, callback) {
-      const final = Object.entries(COLUMN_MAP).reduce(
-        (acc, [key, processor]) => {
-          if (processor === true) {
-            return acc
-          } else if (typeof processor === 'function') {
-            return {
-              ...acc,
-              //
-              // pass acc to processor so that operations
-              // may read values from previous operations
-              //
-              [key]: processor(acc),
-            }
-          }
-        },
-        entry,
-      )
-
-      this.push(final)
-      callback()
-    },
-    objectMode: true,
-  })
-
-  const stringifier = stringify({
-    header: true,
-    columns: Object.keys(COLUMN_MAP),
-  })
-
-  const writeStream = createWriteStream(outputPath)
-
-  return readStream
-    .pipe(parser)
-    .pipe(transformer)
-    .pipe(stringifier)
-    .pipe(writeStream)
 }
