@@ -1537,6 +1537,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: fb407355f7e6cd523a9383e76e6b455321f0f153a6c9625e21a8827d10c54c2a2341bd2ae8d034358b60e07325e1330c14c224ff582d04612a46a4f0479ff2f2
+  languageName: node
+  linkType: hard
+
 "lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
@@ -2088,6 +2095,7 @@ __metadata:
     danfojs-node: "npm:^1.1.2"
     inquirer: "npm:^9.2.22"
     lodash: "npm:^4.17.21"
+    lodash-es: "npm:^4.17.21"
     mkdirp: "npm:^3.0.1"
     papaparse: "npm:^5.4.1"
     prettier: "npm:^3.2.5"
